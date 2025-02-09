@@ -1,0 +1,171 @@
+.mood-tracker {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: rgb(255, 160, 201);
+    color: #333;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 80vw; /* Full width */
+    height: 90vh; /* Full height */
+    box-sizing: border-box;
+}
+
+p{
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+/* Main Layout */
+.dashboard {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1400px;
+    height: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 15%;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    min-height: 300px;
+}
+
+.sidebar ul {
+    font-family: "Pixelify Sans", sans-serif;
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    font-family: "Pixelify Sans", sans-serif;
+    margin: 10px 0;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Mood Input & Calendar Side by Side */
+.main-content {
+    display: flex;
+    gap: 20px;
+    width: 85%; /* Remaining width after sidebar */
+    justify-content: space-between;
+}
+
+/* Mood Input Section */
+.content, .calendar-container {
+    width: 48%; /* Make sure they are side by side */
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    min-height: 469px;
+}
+
+/* Calendar Section */
+.calendar-container {
+    text-align: center;
+    min-height: 469px;
+}
+
+/* Calendar Header */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+/* Calendar Grid */
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    margin-top: 5px;
+}
+
+/* Mood-based Colors */
+.day {
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: lightgray;
+    font-size: 14px;
+}
+
+.good { background-color: #2E8B57; color: white; }
+.not-bad { background-color: #FFC300; color: black; }
+.bad { background-color: #FF5733; color: white; }
+
+/* Buttons & Inputs */
+select, button, textarea {
+    font-size: 16px;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    width: 90%;
+}
+
+button {
+    background-color: rgb(255, 160, 201);
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 40%;
+}
+
+button:hover {
+    background-color: #fb7ec5;
+}
+
+/* Title Font */
+h3 {
+    font-family: "Pixelify Sans", sans-serif;
+    color: rgb(255, 160, 201);
+}
+
+form{
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+.main-content {
+    display: flex;
+    gap: 40px; /* Increased gap for more spacing */
+    width: 85%; /* Adjusted width */
+    justify-content: center; /* Center align */
+}
+
+/* Mood Input Section */
+.content, .calendar-container {
+    width: 40%; /* Reduced width */
+    background: white;
+    padding: 15px; /* Reduced padding */
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    min-height: 466px; /* Reduced min height */
+    margin-left: 80px;
+}
+
+.emoji-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 15px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    font-family: "Pixelify Sans";
+}
+
+.emoji-button:hover {
+    transform: scale(1.2);
+    background-color: transparent;
+}

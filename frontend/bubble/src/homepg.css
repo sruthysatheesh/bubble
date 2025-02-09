@@ -1,0 +1,97 @@
+/* Apply Pixelify Sans globally */
+/* Apply Pixelify Sans globally */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Pixelify+Sans:wght@600..700&display=swap');
+
+.pixel-text {
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+
+
+/* Update home-container to use Pixelify Sans */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    font-family: "Pixelify Sans", sans-serif; /* Apply the font here */
+    width: 100%;
+}
+
+/* Header styling */
+.header {
+    margin-bottom: 20px;
+    font-family: "Pixelify Sans", sans-serif; /* Ensure header uses the font */
+}
+
+.header h1 {
+    font-family: "Pixelify Sans", sans-serif;
+
+    font-size: 2.5rem;
+    color: #f35daa;
+}
+
+.header p {
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Content styling */
+.content-wrapper {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Info Box styling */
+.info-box {
+    background: rgb(255, 160, 201);
+    padding: 20px;
+    width: 320px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: "Pixelify Sans", sans-serif; /* Ensure info-box uses the font */
+}
+
+.info-box h2 {
+    color: #f9cede;
+    
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+.info-box ul {
+    list-style: none;
+    padding: 0;
+    
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+.info-box li {
+    font-size: 1rem;
+    margin: 5px 0;
+    
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+/* Button Styling */
+.cta-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #f6e8ed;
+    color: rgb(255, 213, 228);
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: "Pixelify Sans", sans-serif; /* Ensure button uses the font */
+}
+
+.cta-button:hover {
+    background-color: #eb639c;
+}

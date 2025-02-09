@@ -1,0 +1,28 @@
+.moodboard {
+    text-align: center;
+    padding: 20px;
+}
+
+.user-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.user-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    width: 200px;
+}
+
+.back-button {
+    margin-top: 20px;
+    font-size: 24px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
