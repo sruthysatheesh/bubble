@@ -12,9 +12,11 @@
   "description": "",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^17.0.1",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
     "jwt-decode": "^4.0.0",
+    "mongodb": "^6.17.0",
     "mysql": "^2.18.1",
     "mysql2": "^3.13.0"
   }

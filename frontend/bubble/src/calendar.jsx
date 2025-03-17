@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom"; // ✅ Get user ID from URL
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import { motion } from "framer-motion";
 import "./calendar.css";
 
 const Calendar = () => {
-  const { userId } = useParams(); // ✅ Extract user ID from the URL
+  const { userId } = useParams();
   const [moods, setMoods] = useState({});
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
-  const [selectedDate, setSelectedDate] = useState(null); // State to track selected date
+  const [selectedDate, setSelectedDate] = useState(null);
 
   useEffect(() => {
     if (!userId) {
@@ -19,13 +19,15 @@ const Calendar = () => {
 
     const fetchMoodEntries = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/mood-entries/${userId}/${currentYear}/${currentMonth + 1}`);
+        const response = await axios.get(
+          `http://localhost:5000/mood-entries/${userId}/${currentYear}/${currentMonth + 1}`
+        );
         const moodEntries = response.data;
 
-        // Convert mood entries into a format that the calendar can use
         const moodData = {};
         moodEntries.forEach((entry) => {
-          moodData[entry.entry_date] = { mood: entry.mood, note: entry.note };
+          const date = entry.entry_date.split("T")[0];
+          moodData[date] = { mood: entry.mood, note: entry.note };
         });
 
         setMoods(moodData);
@@ -47,20 +49,37 @@ const Calendar = () => {
     }
 
     for (let day = 1; day <= daysInMonth; day++) {
-      const date = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+      const date = `${currentYear}-${String(currentMonth + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+      const moodData = moods[date];
       let moodClass = "day";
 
-      if (moods[date]) {
-        moodClass += moods[date].mood === "Good" ? " good" : moods[date].mood === "Not Bad" ? " not-bad" : " bad";
+      if (moodData) {
+        switch (moodData.mood) {
+          case "Good":
+            moodClass += " good";
+            break;
+          case "Not Bad":
+            moodClass += " not-bad";
+            break;
+          case "Bad":
+            moodClass += " bad";
+            break;
+          default:
+            break;
+        }
       }
 
       days.push(
-        <motion.div 
-          key={day} 
+        <motion.div
+          key={day}
           className={moodClass}
           whileHover={{ scale: 1.1 }}
           transition={{ duration: 0.2 }}
-          onClick={() => setSelectedDate(date)} // Set selected date on click
+          onClick={() => {
+            console.log("Selected Date:", date); // Debugging log
+            console.log("Mood Data for Selected Date:", moods[date]); // Debugging log
+            setSelectedDate(date);
+          }}
         >
           {day}
         </motion.div>
@@ -70,45 +89,75 @@ const Calendar = () => {
   };
 
   return (
-    <motion.div 
-      className="calendar-container"
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
-    >
-      <h2>Your Monthly Mood Trend OwO</h2>
-      <div className="calendar-header">
-        <motion.button 
-          onClick={() => setCurrentMonth((prev) => (prev === 0 ? 11 : prev - 1))}
-          whileHover={{ scale: 1.1 }}
-        >
-          ◀
-        </motion.button>
-        <h3>{new Date(currentYear, currentMonth).toLocaleString("default", { month: "long", year: "numeric" })}</h3>
-        <motion.button 
-          onClick={() => setCurrentMonth((prev) => (prev === 11 ? 0 : prev + 1))}
-          whileHover={{ scale: 1.1 }}
-        >
-          ▶
-        </motion.button>
-      </div>
-      <div className="calendar">{generateCalendar()}</div>
+    <div className="parent-container">
+      {/* Calendar Container */}
+      <motion.div
+        className="calendar-container"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
+        <h2>Your Monthly Mood Trend OwO</h2>
+        <div className="calendar-header">
+          <motion.button
+            onClick={() => {
+              if (currentMonth === 0) {
+                setCurrentMonth(11);
+                setCurrentYear((prev) => prev - 1);
+              } else {
+                setCurrentMonth((prev) => prev - 1);
+              }
+            }}
+            whileHover={{ scale: 1.1 }}
+          >
+            ◀
+          </motion.button>
+          <h3>
+            {new Date(currentYear, currentMonth).toLocaleString("default", {
+              month: "long",
+              year: "numeric",
+            })}
+          </h3>
+          <motion.button
+            onClick={() => {
+              if (currentMonth === 11) {
+                setCurrentMonth(0);
+                setCurrentYear((prev) => prev + 1);
+              } else {
+                setCurrentMonth((prev) => prev + 1);
+              }
+            }}
+            whileHover={{ scale: 1.1 }}
+          >
+            ▶
+          </motion.button>
+        </div>
+        <div className="calendar">{generateCalendar()}</div>
+      </motion.div>
 
-      {/* Display details for the selected date */}
-      {selectedDate && moods[selectedDate] && (
-        <motion.div 
-          className="details-container"
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <h3>Details for {selectedDate}</h3>
-          <p><strong>Mood:</strong> {moods[selectedDate].mood}</p>
-          <p><strong>Note:</strong> {moods[selectedDate].note || "No note entered"}</p>
-          <button onClick={() => setSelectedDate(null)}>Close</button>
-        </motion.div>
-      )}
-    </motion.div>
+      {/* Details Container */}
+      <motion.div
+        className="details-container"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        {selectedDate && moods[selectedDate] ? (
+          <>
+            <h3>Details for {selectedDate}</h3>
+            <p>
+              <strong>Mood:</strong> {moods[selectedDate].mood}
+            </p>
+            <p>
+              <strong>Note:</strong> {moods[selectedDate].note || "No note entered"}
+            </p>
+            <button onClick={() => setSelectedDate(null)}>Close</button>
+          </>
+        ) : (
+          <p>Select a date to view details.</p>
+        )}
+      </motion.div>
+    </div>
   );
 };
 

@@ -1,310 +1,81 @@
-/* Mood Tracker Styles */
-.mood-tracker {
-    display: flex;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #f9f4f8, #f6e8ed);
-    font-family: "Pixelify Sans", sans-serif;
-  }
-  
-  /* Sidebar */
-  .sidebar {
-    width: 250px;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-right: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-    height: 100vh; /* Full height of the page */
-    position: fixed; /* Fixed position to keep it visible while scrolling */
-    overflow-y: auto; /* Scrollable if content exceeds height */
-  }
-  
-  .sidebar h2 {
-    font-size: 1.5rem;
-    color: #f35daa;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .sidebar li {
-    font-size: 1.1rem;
-    color: #555;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .sidebar li:hover {
-    background-color: #f35daa;
-    color: white;
-  }
-  
-  /* Main Content */
-  .main-content {
-    flex: 1;
-    margin-left: 250px; /* Offset by sidebar width */
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.9);
-    min-height: 100vh; /* Full height of the page */
-  }
-  
-  .content {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  h2 {
-    font-size: 2rem;
-    color: #f35daa;
-    margin-bottom: 20px;
-    font-family: pixelify sans;
-    text-align: center;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  select,
-  textarea {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #f9cede;
-    border-radius: 8px;
-    background-color: #f9cede;
-    color: #555;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  select:focus,
-  textarea:focus {
-    border-color: #f35daa;
-    outline: none;
-    box-shadow: 0 0 8px rgba(243, 93, 170, 0.3);
-  }
-  
-  textarea {
-    height: 150px;
-    resize: none;
-  }
-  
-  button {
-    padding: 12px;
-    background-color: #f35daa;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #eb639c;
-    transform: translateY(-3px);
-  }
-  
-  #message {
-    font-size: 1.1rem;
-    color: #555;
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .sidebar {
-      width: 100%;
-      height: auto;
-      position: static;
-      border-right: none;
-      box-shadow: none;
-    }
-  
-    .main-content {
-      margin-left: 0;
-      padding: 10px;
-    }
-  
-    .content {
-      max-width: 100%;
-    }
-  
-    h2 {
-      font-size: 1.8rem;
-    }
-  
-    select,
-    textarea {
-      padding: 8px;
-      font-size: 0.9rem;
-    }
-  
-    button {
-      padding: 10px;
-    }
-  }/* Mood Tracker Styles */
-.mood-tracker {
+/* Base Layout */
+.app-container {
   display: flex;
   min-height: 100vh;
-  background: linear-gradient(135deg, #f9f4f8, #f6e8ed);
-  font-family: "Pixelify Sans", sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Sidebar */
+/* Sidebar Styles */
 .sidebar {
   width: 250px;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 20px;
-  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: #2c3e50;
+  color: white;
+  padding: 1.5rem;
+  position: fixed;
+  margin-left: 0px;
+  height: 100vh;
+  min-height: 720px;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-  height: 100vh; /* Full height of the page */
-  position: fixed; /* Fixed position to keep it visible while scrolling */
-  overflow-y: auto; /* Scrollable if content exceeds height */
 }
 
-.sidebar h2 {
-  font-size: 1.5rem;
-  color: #f35daa;
-  margin-bottom: 20px;
-  text-align: center;
+.sidebar-header {
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.sidebar ul {
+.sidebar-header h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.sidebar-nav ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
-.sidebar li {
-  font-size: 1.1rem;
-  color: #555;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 8px;
+.sidebar-nav li {
+  padding: 0.75rem 0;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.2s;
+  border-radius: 4px;
+  padding-left: 10px;
 }
 
-.sidebar li:hover {
-  background-color: #f35daa;
-  color: white;
+.sidebar-nav li:hover {
+  background-color: #34495e;
 }
 
-/* Main Content */
+/* Main Content Styles */
 .main-content {
   flex: 1;
-  margin-left: 250px; /* Offset by sidebar width */
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.9);
-  min-height: 100vh; /* Full height of the page */
+  margin-left: 250px; /* Must match sidebar width */
+  padding: 2rem;
+  background-color: #f5f7fa;
+  min-height: 100vh;
 }
 
-.content {
-  max-width: 600px;
+.content-container {
+  max-width: 800px;
   margin: 0 auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-h2 {
-  font-size: 2rem;
-  color: #f35daa;
-  margin-bottom: 20px;
-  font-family: pixelify sans;
-  text-align: center;
-}
-
+/* Form Elements (keep your existing motion animations) */
 form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 1.5rem;
 }
 
-select,
-textarea {
+textarea, select {
   width: 100%;
-  padding: 10px;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
   font-size: 1rem;
-  border: 1px solid #f9cede;
-  border-radius: 8px;
-  background-color: #f9cede;
-  color: #555;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-select:focus,
-textarea:focus {
-  border-color: #f35daa;
-  outline: none;
-  box-shadow: 0 0 8px rgba(243, 93, 170, 0.3);
-}
-
-textarea {
-  height: 150px;
-  resize: none;
-}
-
-button {
-  padding: 12px;
-  background-color: #f35daa;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-button:hover {
-  background-color: #eb639c;
-  transform: translateY(-3px);
-}
-
-#message {
-  font-size: 1.1rem;
-  color: #555;
-  margin-top: 20px;
-  text-align: center;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: static;
-    border-right: none;
-    box-shadow: none;
-  }
-
-  .main-content {
-    margin-left: 0;
-    padding: 10px;
-  }
-
-  .content {
-    max-width: 100%;
-  }
-
-  h2 {
-    font-size: 1.8rem;
-    font-family: pixelify sans;
-  }
-
-  select,
-  textarea {
-    padding: 8px;
-    font-size: 0.9rem;
-  }
-
-  button {
-    padding: 10px;
-  }
 }

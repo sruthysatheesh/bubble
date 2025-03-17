@@ -1,12 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Pixelify+Sans:wght@600..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap");
 
 /* General Styles */
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #f9f4f8, #f6e8ed); /* Soft pink gradient */
-  color: #333;
-  font-family: "Pixelify Sans", sans-serif;
+  background: transparent; /* Soft blue gradient */
+  color: #2d3748;
+  font-family: "Inter", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,7 +15,7 @@ body {
 
 /* Login Container */
 .login-container {
-  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+  background: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -35,9 +35,11 @@ body {
 /* Title */
 h1 {
   font-size: 2.5rem;
-  color: #f35daa; /* Bright pink */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  color: #2c5282; /* Deep blue */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
 }
 
 /* Form Field Styles */
@@ -51,7 +53,8 @@ label {
   display: block;
   font-size: 1rem;
   margin-bottom: 5px;
-  color: #555;
+  color: #4a5568;
+  font-weight: 500;
 }
 
 input {
@@ -61,18 +64,18 @@ input {
   border: 1px solid #ccc;
   border-radius: 8px;
   box-sizing: border-box;
-  font-family: "Pixelify Sans", sans-serif;
+  font-family: "Inter", sans-serif;
   transition: border-color 0.3s ease;
 }
 
 input:focus {
-  border-color: #f35daa; /* Bright pink on focus */
+  border-color: #2c5282; /* Deep blue on focus */
   outline: none;
 }
 
 /* Button Styles */
 button[type="submit"] {
-  background-color: #f35daa; /* Bright pink */
+  background-color: #2c5282; /* Deep blue */
   color: white;
   padding: 12px 24px;
   font-size: 1rem;
@@ -80,12 +83,13 @@ button[type="submit"] {
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 4px 10px rgba(243, 93, 170, 0.3);
-  font-family: "Pixelify Sans", sans-serif;
+  box-shadow: 0 4px 10px rgba(44, 82, 130, 0.3);
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
 }
 
 button[type="submit"]:hover {
-  background-color: #eb639c; /* Slightly darker pink on hover */
+  background-color: #1a365d; /* Darker blue on hover */
   transform: translateY(-3px);
 }
 

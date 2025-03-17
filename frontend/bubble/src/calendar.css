@@ -1,76 +1,43 @@
-/* Calendar Styles */
+/* Parent Container */
+.parent-container {
+  display: flex;
+  gap: 20px; /* Space between calendar and details */
+  max-width: 1200px; /* Adjust as needed */
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+/* Calendar Container */
 .calendar-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+  flex: 1; /* Take up remaining space */
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 20px;
+  font-family: "Inter", sans-serif;
+}
+
+/* Details Container */
+.details-container {
+  flex: 0 0 300px; /* Fixed width for details container */
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  height: fit-content; /* Adjust height to fit content */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .parent-container {
+    flex-direction: column; /* Stack calendar and details vertically on smaller screens */
   }
-  
-  .calendar-container h2 {
-    font-size: 2rem;
-    color: #f35daa;
-    margin-bottom: 20px;
-    text-align: center;
+
+  .details-container {
+    flex: 1; /* Take full width on smaller screens */
+    width: 100%;
   }
-  
-  .calendar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .calendar-header h3 {
-    font-size: 1.5rem;
-    color: #555;
-  }
-  
-  .calendar-header button {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: #f35daa;
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
-  
-  .calendar-header button:hover {
-    color: #eb639c;
-  }
-  
-  .calendar {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
-  }
-  
-  .day {
-    padding: 10px;
-    text-align: center;
-    border-radius: 8px;
-    background-color: #f9cede;
-    color: #555;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  }
-  
-  .day.empty {
-    background-color: transparent;
-  }
-  
-  .day.good {
-    background-color: #4CAF50; /* Green for Good mood */
-  }
-  .day.not-bad {
-    background-color: #FFC107; /* Yellow for Not Bad mood */
-  }
-  .day.bad {
-    background-color: #F44336; /* Red for Bad mood */
-  }
-  
-  .day:hover {
-    transform: scale(1.05);
-  }
+}

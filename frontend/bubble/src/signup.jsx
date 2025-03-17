@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./SignupPage.css";
 
-const interestsList = ["Anxiety", "Depression", "Stress", "Loneliness", "Self-Improvement"];
+const interestsList = ["Coding", "Reading", "Music", "Dancing", "Self-Improvement", "Gaming", "Crochet", "Cooking", "Traveling", "Photography", "Gardening"];
 const problemsList = ["Financial Issues", "Relationship Problems", "Health Issues", "Career Stress", "Loss of a Loved One"];
 
 function Signup() {

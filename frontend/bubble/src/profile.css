@@ -1,164 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap");
+
+/* General Styles */
 body {
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #fffbfb, #e8b7cc);
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background: transparent; /* Soft blue gradient */
+  color: #2d3748; /* Dark gray */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
 }
 
 /* User Page Container */
 .user-container {
-    width: 90%;
-    max-width: 450px;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    text-align: center;
-    animation: fadeIn 1s ease-in-out;
-    margin-top: 20px;
+  width: 90%;
+  max-width: 450px;
+  background: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+  margin-top: 20px;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Profile Picture */
 .profile-picture {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 4px solid white;
-    object-fit: cover;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid white;
+  object-fit: cover;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-picture:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Hidden file input */
 .file-input {
-    display: none;
+  display: none;
 }
 
 /* Buttons */
 .btn {
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 20px;
-    cursor: pointer;
-    margin-top: 10px;
-    font-size: 14px;
-    transition: transform 0.2s, background-color 0.3s;
+  background: linear-gradient(135deg, #2c5282, #1a365d); /* Deep blue gradient */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: transform 0.2s, background-color 0.3s;
 }
 
 .btn:hover {
-    background: linear-gradient(135deg, #5a0fc7, #1b6efc);
-    transform: scale(1.05);
+  background: linear-gradient(135deg, #1a365d, #2c5282); /* Darker blue gradient */
+  transform: scale(1.05);
 }
 
 /* Mood Tracker */
 .mood-section {
-    margin-top: 20px;
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2c5282; /* Deep blue */
 }
 
 /* Badge Section */
 .badges-section {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .badges {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .badge {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 80px;
-    transition: transform 0.3s ease-in-out;
+  background: rgba(44, 82, 130, 0.1); /* Light blue background */
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease;
 }
 
 .badge:hover {
-    transform: scale(1.1);
-    background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+  background: rgba(44, 82, 130, 0.2); /* Slightly darker blue on hover */
 }
 
 .badge img {
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
 }
 
 /* Navigation */
 .nav-menu {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
 }
 
 .nav-menu a {
-    background: #fff;
-    padding: 12px;
-    border-radius: 8px;
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    transition: background 0.3s ease-in-out, transform 0.2s;
+  background: white;
+  padding: 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #2c5282; /* Deep blue */
+  font-weight: 600;
+  transition: background 0.3s ease-in-out, transform 0.2s, color 0.3s ease;
 }
 
 .nav-menu a:hover {
-    background: #ff758c;
-    color: white;
-    transform: scale(1.1);
+  background: #2c5282; /* Deep blue on hover */
+  color: white;
+  transform: scale(1.1);
 }
 
+/* Profile Container */
 .profile-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .profile-details {
-    margin-top: 20px;
-  }
-  
-  .profile-details p {
-    margin: 10px 0;
-    color: #555;
-  }
-  
-  .chat-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .chat-button:hover {
-    background-color: #45a049;
-  }
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-details {
+  margin-top: 20px;
+}
+
+.profile-details p {
+  margin: 10px 0;
+  color: #4a5568; /* Dark gray */
+}
+
+/* Chat Button */
+.chat-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #2c5282; /* Deep blue */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.chat-button:hover {
+  background-color: #1a365d; /* Darker blue on hover */
+  transform: translateY(-2px);
+}

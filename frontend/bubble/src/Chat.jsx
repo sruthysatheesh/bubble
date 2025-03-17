@@ -128,7 +128,10 @@ const Chat = () => {
       <h2>Chat with User</h2>
       <div className="chat-messages">
         {messages.map((msg, index) => (
-          <div key={index} className="message">
+          <div
+            key={index}
+            className={`message ${msg.sender === "You" ? "outgoing" : "incoming"}`} // Apply class based on sender
+          >
             <p><strong>{msg.sender}:</strong> {msg.text}</p>
           </div>
         ))}

@@ -10,7 +10,20 @@ function Home() {
   };
 
   return (
+    
     <div className="home-container">
+
+      {/* Video Background */}
+    <video 
+      autoPlay 
+      muted 
+      loop 
+      className="video-background"
+    >
+      <source src="/ocean3.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
       {/* Header Section */}
       <motion.header
         initial={{ opacity: 0, y: -50 }}
@@ -18,7 +31,7 @@ function Home() {
         transition={{ duration: 0.8 }}
         className="header"
       >
-        <h1 className="pixel-text">✮⋆˙BUBBLE˙⋆✮</h1>
+        <h1 className="main-title">✮⋆˙BUBBLE˙⋆✮</h1>
         <p className="subtitle">Your safe space to connect, heal, and grow</p>
         <p className="decorative-text">𖦹 ׂ 𓈒 🐇 ／ ⋆ ۪</p>
       </motion.header>

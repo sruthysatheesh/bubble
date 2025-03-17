@@ -1,171 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap");
+
+/* Mood Tracker Container */
 .mood-tracker {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: rgb(255, 160, 201);
-    color: #333;
-    padding: 20px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 80vw; /* Full width */
-    height: 90vh; /* Full height */
-    box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  background: linear-gradient(135deg, #f0f4f8, #e6eef7); /* Soft blue gradient */
+  color: #2d3748; /* Dark gray */
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  width: 80vw; /* Full width */
+  height: 90vh; /* Full height */
+  box-sizing: border-box;
 }
 
-p{
-    font-family: "Pixelify Sans", sans-serif;
+
+/* Paragraph Text */
+p {
+  font-family: "Inter", sans-serif;
+  color: #4a5568; /* Dark gray */
 }
 
 /* Main Layout */
 .dashboard {
-    display: flex;
-    justify-content: space-between;
-    width: 90%;
-    max-width: 1400px;
-    height: 100%;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1400px;
+  height: 100%;
 }
 
 /* Sidebar */
 .sidebar {
-    width: 15%;
-    background: white;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    min-height: 300px;
+  width: 15%;
+  background: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
+  padding: 20px;
+  left:0;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  min-height: 750px; /* Minimum height */
+  position: sticky;
 }
 
 .sidebar ul {
-    font-family: "Pixelify Sans", sans-serif;
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .sidebar li {
-    font-family: "Pixelify Sans", sans-serif;
-    margin: 10px 0;
-    cursor: pointer;
-    font-weight: bold;
+  margin: 10px 0;
+  cursor: pointer;
+  font-weight: 500;
+  color: #4a5568; /* Dark gray */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar li:hover {
+  color: #2c5282; /* Deep blue on hover */
+  transform: translateX(5px);
 }
 
 /* Mood Input & Calendar Side by Side */
 .main-content {
-    display: flex;
-    gap: 20px;
-    width: 85%; /* Remaining width after sidebar */
-    justify-content: space-between;
+  display: flex;
+  gap: 40px; /* Increased gap for more spacing */
+  width: 85%; /* Adjusted width */
+  justify-content: center; /* Center align */
 }
 
 /* Mood Input Section */
-.content, .calendar-container {
-    width: 48%; /* Make sure they are side by side */
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    min-height: 469px;
+.content,
+.calendar-container {
+  width: 40%; /* Reduced width */
+  background: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  min-height: 466px; /* Reduced min height */
 }
 
 /* Calendar Section */
 .calendar-container {
-    text-align: center;
-    min-height: 469px;
+  text-align: center;
 }
 
 /* Calendar Header */
 .calendar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.calendar-header h3 {
+  font-size: 1.5rem;
+  color: #2c5282; /* Deep blue */
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+}
+
+.calendar-header button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #2c5282; /* Deep blue */
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.calendar-header button:hover {
+  color: #1a365d; /* Darker blue on hover */
+  transform: scale(1.1);
 }
 
 /* Calendar Grid */
 .calendar {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-    margin-top: 5px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  margin-top: 10px;
 }
 
 /* Mood-based Colors */
 .day {
-    width: 35px;
-    height: 35px;
-    text-align: center;
-    line-height: 35px;
-    font-weight: bold;
-    border-radius: 5px;
-    background-color: lightgray;
-    font-size: 14px;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  line-height: 35px;
+  font-weight: 500;
+  border-radius: 5px;
+  background-color: rgba(44, 82, 130, 0.1); /* Light blue background */
+  color: #4a5568; /* Dark gray */
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.good { background-color: #2E8B57; color: white; }
-.not-bad { background-color: #FFC300; color: black; }
-.bad { background-color: #FF5733; color: white; }
+.day:hover {
+  transform: scale(1.05);
+  background-color: rgba(44, 82, 130, 0.2); /* Slightly darker blue on hover */
+}
+
+.good {
+  background-color: #48bb78; /* Green for Good mood */
+  color: white;
+}
+
+.not-bad {
+  background-color: #ecc94b; /* Yellow for Not Bad mood */
+  color: white;
+}
+
+.bad {
+  background-color: #f56565; /* Red for Bad mood */
+  color: white;
+}
 
 /* Buttons & Inputs */
-select, button, textarea {
-    font-size: 16px;
-    padding: 10px;
-    margin: 8px 0;
-    border-radius: 5px;
-    width: 90%;
+select,
+button,
+textarea {
+  font-size: 16px;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 5px;
+  width: 90%;
+  border: 1px solid #e2e8f0; /* Light gray border */
+  background-color: white;
+  color: #4a5568; /* Dark gray */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+select:focus,
+textarea:focus {
+  border-color: #2c5282; /* Deep blue on focus */
+  outline: none;
+  box-shadow: 0 0 8px rgba(44, 82, 130, 0.3); /* Soft blue shadow */
 }
 
 button {
-    background-color: rgb(255, 160, 201);
-    color: white;
-    border: none;
-    cursor: pointer;
-    width: 40%;
+  background-color: #2c5282; /* Deep blue */
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 40%;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
-    background-color: #fb7ec5;
+  background-color: #1a365d; /* Darker blue on hover */
+  transform: translateY(-2px);
 }
 
 /* Title Font */
 h3 {
-    font-family: "Pixelify Sans", sans-serif;
-    color: rgb(255, 160, 201);
+  font-family: "Playfair Display", serif;
+  color: #2c5282; /* Deep blue */
+  font-weight: 600;
 }
 
-form{
-    font-family: "Pixelify Sans", sans-serif;
+form {
+  font-family: "Inter", sans-serif;
 }
 
-.main-content {
-    display: flex;
-    gap: 40px; /* Increased gap for more spacing */
-    width: 85%; /* Adjusted width */
-    justify-content: center; /* Center align */
-}
-
-/* Mood Input Section */
-.content, .calendar-container {
-    width: 40%; /* Reduced width */
-    background: white;
-    padding: 15px; /* Reduced padding */
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    min-height: 466px; /* Reduced min height */
-    margin-left: 80px;
-}
-
+/* Emoji Button */
 .emoji-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    font-size: 15px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out;
-    font-family: "Pixelify Sans";
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 15px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
 }
 
 .emoji-button:hover {
-    transform: scale(1.2);
-    background-color: transparent;
+  transform: scale(1.2);
+  background-color: transparent;
 }

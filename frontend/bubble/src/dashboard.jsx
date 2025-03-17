@@ -206,7 +206,7 @@ const MoodTracker = () => {
               <option value="Not Bad">Not Bad :|</option>
               <option value="Bad">Bad :/</option>
             </motion.select>
-            <p>Go ahead and start Journaling!</p>
+            <p>Not in the mood to talk it out? Write it out. Journaling helps you collect your thoughts and reduces stress. Go ahead and start Journaling!</p>
             <motion.textarea
               value={note}
               onChange={(e) => setNote(e.target.value)}
