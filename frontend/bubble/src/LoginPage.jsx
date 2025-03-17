@@ -18,19 +18,20 @@ function Login() {
 
         try {
             const res = await axios.post("http://localhost:5000/login", { username, password });
+            console.log("Login response:", res.data); // Debug the response
 
             if (res.data.user) {
                 const userId = res.data.user.id;
-                
+
                 // ✅ Store user data in localStorage
-                localStorage.setItem("token", res.data.token);
+                localStorage.setItem("token", res.data.token); // Ensure this matches the backend response
                 localStorage.setItem("userId", userId);
                 localStorage.setItem("username", res.data.user.username);
 
                 setMessage("Login successful");
 
-                // ✅ Redirect to profile page
-                navigate(`/login/dash`);
+                // ✅ Redirect to dashboard with dynamic userId
+                navigate(`/dashboard/${userId}`); // Pass userId dynamically
             } else {
                 setMessage("Login failed! No user data received.");
                 setShake(true); // Trigger shake effect on failure

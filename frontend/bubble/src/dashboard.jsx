@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import axios from "axios";
 import "./MoodTracker.css";
 
 const MoodTracker = () => {
@@ -21,12 +22,34 @@ const MoodTracker = () => {
     }
   }, [moods]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const updatedMoods = { ...moods, [today]: { mood, note } };
-    setMoods(updatedMoods);
-    localStorage.setItem("moods", JSON.stringify(updatedMoods));
-    setMessage(getMoodMessage(mood));
+
+    // ✅ Retrieve user ID from localStorage
+    const userId = localStorage.getItem("userId");
+
+    if (!userId) {
+        alert("User not logged in. Please log in first.");
+        navigate("/login"); // Redirect to login page
+        return;
+    }
+
+    try {
+        const response = await axios.post("http://localhost:5000/mood", {
+            userId,
+            mood,
+            note,
+        }, {
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        alert(response.data.message);
+        setMessage(getMoodMessage(mood));
+    } catch (error) {
+        console.error("❌ Error saving mood entry:", error.response?.data || error.message);
+        alert(error.response?.data?.message || "Failed to save mood entry");
+    }
   };
 
   const getMoodMessage = (mood) => {
@@ -40,35 +63,53 @@ const MoodTracker = () => {
     }
   };
 
-  const generateCalendar = () => {
-    const firstDay = new Date(currentYear, currentMonth, 1).getDay();
-    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-    const days = [];
+  const generateCalendar = async () => {
+    // ✅ Retrieve user ID from localStorage
+    const userId = localStorage.getItem("userId");
 
-    for (let i = 0; i < firstDay; i++) {
-      days.push(<div key={`empty-${i}`} className="day empty"></div>);
+    if (!userId) {
+        alert("User not logged in. Please log in first.");
+        navigate("/login"); // Redirect to login page
+        return [];
     }
 
-    for (let day = 1; day <= daysInMonth; day++) {
-      const date = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-      let moodClass = "day";
+    try {
+        const response = await axios.get(`http://localhost:5000/mood-entries/${userId}/${currentYear}/${currentMonth + 1}`);
+        const moodEntries = response.data;
 
-      if (moods[date]) {
-        moodClass += moods[date].mood === "Good" ? " good" : moods[date].mood === "Not Bad" ? " not-bad" : " bad";
-      }
+        const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+        const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+        const days = [];
 
-      days.push(
-        <motion.div 
-          key={day} 
-          className={moodClass}
-          whileHover={{ scale: 1.1 }}
-          transition={{ duration: 0.2 }}
-        >
-          {day}
-        </motion.div>
-      );
+        for (let i = 0; i < firstDay; i++) {
+            days.push(<div key={`empty-${i}`} className="day empty"></div>);
+        }
+
+        for (let day = 1; day <= daysInMonth; day++) {
+            const date = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+            let moodClass = "day";
+
+            const moodEntry = moodEntries.find((entry) => entry.entry_date === date);
+            if (moodEntry) {
+                moodClass += moodEntry.mood === "Good" ? " good" : moodEntry.mood === "Not Bad" ? " not-bad" : " bad";
+            }
+
+            days.push(
+                <motion.div 
+                    key={day} 
+                    className={moodClass}
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.2 }}
+                >
+                    {day}
+                </motion.div>
+            );
+        }
+        return days;
+    } catch (error) {
+        console.error("❌ Error fetching mood entries:", error.response?.data || error.message);
+        return [];
     }
-    return days;
   };
 
   return (
@@ -78,6 +119,69 @@ const MoodTracker = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
     >
+      {/* Sidebar */}
+      <motion.div 
+        className="sidebar"
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <h2>Menu</h2>
+        <ul>
+          <li onClick={() => navigate("/moodboard")}>MoodBoard</li>
+          <li onClick={() => {
+              const userId = localStorage.getItem("userId");
+              if (userId) {
+                  navigate(`/calendar/${userId}`); // Use template literals to include the userId
+              } else {
+                  alert("User not logged in. Please log in first.");
+                  navigate("/login"); // Redirect to login if userId is not found
+              }
+          }}>Calendar</li>
+
+          <li onClick={() => {
+              const userId = localStorage.getItem("userId");
+              if (userId) {
+                  navigate(`/friends/${userId}`); // Use template literals to include the userId
+              } else {
+                  alert("User not logged in. Please log in first.");
+                  navigate("/login"); // Redirect to login if userId is not found
+              }
+          }}>Find Friends</li>
+
+          <li onClick={() => {
+                        const userId = localStorage.getItem("userId");
+                        if (userId) {
+                            navigate(`/mychats/${userId}`); // Use template literals to include the userId
+                        } else {
+                            alert("User not logged in. Please log in first.");
+                            navigate("/login"); // Redirect to login if userId is not found
+                        }
+                    }}>Chats</li>
+
+          <li onClick={() => {
+                        const userId = localStorage.getItem("userId");
+                        if (userId) {
+                            navigate(`/forums/${userId}`); // Use template literals to include the userId
+                        } else {
+                            alert("User not logged in. Please log in first.");
+                            navigate("/login"); // Redirect to login if userId is not found
+                        }
+                    }}>Forums</li>
+          <li onClick={() => {
+              const userId = localStorage.getItem("userId");
+              if (userId) {
+                  navigate(`/profile/${userId}`); // Use template literals to include the userId
+              } else {
+                  alert("User not logged in. Please log in first.");
+                  navigate("/login"); // Redirect to login if userId is not found
+              }
+          }}>Your Profile</li>
+          
+        </ul>
+      </motion.div>
+
+      {/* Main Content */}
       <motion.div 
         className="main-content"
         initial={{ opacity: 0, x: -50 }}
@@ -127,45 +231,7 @@ const MoodTracker = () => {
             {message}
           </motion.p>
         </motion.div>
-
-        {/* Calendar Section */}
-        <motion.div 
-          className="calendar-container"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h3>Your Monthly Mood Trend OwO</h3>
-          <div className="calendar-header">
-            <motion.button 
-              onClick={() => setCurrentMonth((prev) => (prev === 0 ? 11 : prev - 1))}
-              whileHover={{ scale: 1.1 }}
-            >
-              ◀
-            </motion.button>
-            <h3>{new Date(currentYear, currentMonth).toLocaleString("default", { month: "long", year: "numeric" })}</h3>
-            <motion.button 
-              onClick={() => setCurrentMonth((prev) => (prev === 11 ? 0 : prev + 1))}
-              whileHover={{ scale: 1.1 }}
-            >
-              ▶
-            </motion.button>
-          </div>
-          <div className="calendar">{generateCalendar()}</div>
-        </motion.div>
       </motion.div>
-
-      {/* Floating Emoji Button */}
-      <motion.button 
-        className="emoji-button" 
-        onClick={() => navigate("/moodboard")}
-        whileHover={{ scale: 1.2, rotate: 5 }}
-        whileTap={{ scale: 0.9 }}
-        transition={{ type: "spring", stiffness: 100 }}
-      >
-        (っᵔ◡ᵔ)っ(˶ᵔ ᵕ ᵔ˶) <br></br>
-        MoodBoard!
-      </motion.button>
     </motion.div>
   );
 };

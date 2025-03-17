@@ -1,110 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Pixelify+Sans:wght@600..700&display=swap");
+
 /* General Styles */
 body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #f9f4f8, #f6e8ed); /* Soft pink gradient */
+  color: #333;
+  font-family: "Pixelify Sans", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
-    font-family: "Pixelify Sans", sans-serif;    margin: 0;
-    padding: 0;
-    background-color: #f1dfe8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  /* Center the login container */
+/* Login Container */
+.login-container {
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Title */
+h1 {
+  font-size: 2.5rem;
+  color: #f35daa; /* Bright pink */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+/* Form Field Styles */
+.uname,
+.pw {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-family: "Pixelify Sans", sans-serif;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #f35daa; /* Bright pink on focus */
+  outline: none;
+}
+
+/* Button Styles */
+button[type="submit"] {
+  background-color: #f35daa; /* Bright pink */
+  color: white;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(243, 93, 170, 0.3);
+  font-family: "Pixelify Sans", sans-serif;
+}
+
+button[type="submit"]:hover {
+  background-color: #eb639c; /* Slightly darker pink on hover */
+  transform: translateY(-3px);
+}
+
+button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
   .login-container {
-    background-color: #f35daa;
-    padding: 20px 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
+    padding: 20px;
   }
 
-  .bosk {
-    background-color: rgb(255, 160, 201);
-    width: 500px;
-    height: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 15px;
-  }
-  
-  /* Title */
-  h2 {
+  h1 {
     font-size: 2rem;
-    margin-bottom: 20px;
-    color: rgb(251, 138, 191);
-    
-    font-family: "Pixelify Sans", sans-serif;
   }
 
-  h1{
-    color: #f1dfe8;
-  }
-  
-  /* Form field styles */
-  .uname, .pw {
-    margin-bottom: 30px;
-    text-align: center;
-    width: 300px;
-    align-items: center;
-    color: #ec7fb6;
-  }
-  
-  label {
-    display: block;
-    font-size: 0.9rem;
-    margin-bottom: 5px;
-    color: #555;
-  }
-  
   input {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  button[type="submit"] {
     width: 100%;
     padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
   }
-  
-  /* Button Styles */
-  button[type="submit"] {
-    background-color: #414244;
-    color: #f9cede;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #f9cede;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 480px) {
-    .login-container {
-      padding: 15px;
-    }
-  
-    h1 {
-      font-size: 1.5rem;
-      
-    font-family: "Pixelify Sans", sans-serif;
-    }
-
-    h3{
-        font-family: "Pixelify Sans", sans-serif;
-    }
-  
-    button[type="submit"] {
-      width: 100%;
-      padding: 12px;
-    }
-  }
-  
+}

@@ -1,0 +1,310 @@
+/* Mood Tracker Styles */
+.mood-tracker {
+    display: flex;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f9f4f8, #f6e8ed);
+    font-family: "Pixelify Sans", sans-serif;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 250px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    height: 100vh; /* Full height of the page */
+    position: fixed; /* Fixed position to keep it visible while scrolling */
+    overflow-y: auto; /* Scrollable if content exceeds height */
+  }
+  
+  .sidebar h2 {
+    font-size: 1.5rem;
+    color: #f35daa;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    font-size: 1.1rem;
+    color: #555;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .sidebar li:hover {
+    background-color: #f35daa;
+    color: white;
+  }
+  
+  /* Main Content */
+  .main-content {
+    flex: 1;
+    margin-left: 250px; /* Offset by sidebar width */
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    min-height: 100vh; /* Full height of the page */
+  }
+  
+  .content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    color: #f35daa;
+    margin-bottom: 20px;
+    font-family: pixelify sans;
+    text-align: center;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #f9cede;
+    border-radius: 8px;
+    background-color: #f9cede;
+    color: #555;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  select:focus,
+  textarea:focus {
+    border-color: #f35daa;
+    outline: none;
+    box-shadow: 0 0 8px rgba(243, 93, 170, 0.3);
+  }
+  
+  textarea {
+    height: 150px;
+    resize: none;
+  }
+  
+  button {
+    padding: 12px;
+    background-color: #f35daa;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #eb639c;
+    transform: translateY(-3px);
+  }
+  
+  #message {
+    font-size: 1.1rem;
+    color: #555;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: static;
+      border-right: none;
+      box-shadow: none;
+    }
+  
+    .main-content {
+      margin-left: 0;
+      padding: 10px;
+    }
+  
+    .content {
+      max-width: 100%;
+    }
+  
+    h2 {
+      font-size: 1.8rem;
+    }
+  
+    select,
+    textarea {
+      padding: 8px;
+      font-size: 0.9rem;
+    }
+  
+    button {
+      padding: 10px;
+    }
+  }/* Mood Tracker Styles */
+.mood-tracker {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f9f4f8, #f6e8ed);
+  font-family: "Pixelify Sans", sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  height: 100vh; /* Full height of the page */
+  position: fixed; /* Fixed position to keep it visible while scrolling */
+  overflow-y: auto; /* Scrollable if content exceeds height */
+}
+
+.sidebar h2 {
+  font-size: 1.5rem;
+  color: #f35daa;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  font-size: 1.1rem;
+  color: #555;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar li:hover {
+  background-color: #f35daa;
+  color: white;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  margin-left: 250px; /* Offset by sidebar width */
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  min-height: 100vh; /* Full height of the page */
+}
+
+.content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #f35daa;
+  margin-bottom: 20px;
+  font-family: pixelify sans;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #f9cede;
+  border-radius: 8px;
+  background-color: #f9cede;
+  color: #555;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+select:focus,
+textarea:focus {
+  border-color: #f35daa;
+  outline: none;
+  box-shadow: 0 0 8px rgba(243, 93, 170, 0.3);
+}
+
+textarea {
+  height: 150px;
+  resize: none;
+}
+
+button {
+  padding: 12px;
+  background-color: #f35daa;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #eb639c;
+  transform: translateY(-3px);
+}
+
+#message {
+  font-size: 1.1rem;
+  color: #555;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    border-right: none;
+    box-shadow: none;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  .content {
+    max-width: 100%;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    font-family: pixelify sans;
+  }
+
+  select,
+  textarea {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  button {
+    padding: 10px;
+  }
+}

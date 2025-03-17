@@ -1,55 +1,147 @@
-/* Centering the signup container */
-.auth-container {
-    background: white;
+/* Signup Page Styles */
+.signup-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f9f4f8, #f6e8ed);
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 60%;
-    max-width: 600px;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
 }
 
-/* Left side: Username & Password */
-.left-section {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-/* Right side: Dropdowns */
-.right-section {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.signup-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 100%;
+    max-width: 800px; /* Wider container for two columns */
+    text-align: center;
 }
 
 h2 {
-    text-align: center;
-    width: 100%;
+    font-size: 2rem;
+    color: #f35daa;
+    margin-bottom: 20px;
 }
 
-input, select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.error-message {
+    color: #ff4d4d;
+    margin-bottom: 15px;
 }
 
-button {
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between rows */
+}
+
+.form-row {
+    display: flex;
+    gap: 20px; /* Space between columns */
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-size: 1rem;
+    color: #555;
+}
+
+input,
+.custom-dropdown {
     width: 100%;
     padding: 10px;
-    background: #3498db;
+    font-size: 1rem;
+    border: 1px solid #f9cede;
+    border-radius: 8px;
+    background-color: #f9cede;
+    color: #555;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+.custom-dropdown:focus {
+    border-color: #f35daa;
+    outline: none;
+    box-shadow: 0 0 8px rgba(243, 93, 170, 0.3);
+}
+
+.password-input {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #f35daa;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.custom-dropdown {
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.dropdown-option {
+    padding: 8px;
+    margin: 4px 0;
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-option:hover {
+    background-color: #f35daa;
+    color: white;
+}
+
+.dropdown-option.selected {
+    background-color: #f35daa;
+    color: white;
+}
+
+.clear-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #f35daa;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background: #2980b9;
+.clear-button:hover {
+    background-color: #eb639c;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #f35daa;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #eb639c;
+    transform: translateY(-3px);
 }

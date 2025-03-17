@@ -1,0 +1,76 @@
+/* Calendar Styles */
+.calendar-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .calendar-container h2 {
+    font-size: 2rem;
+    color: #f35daa;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .calendar-header h3 {
+    font-size: 1.5rem;
+    color: #555;
+  }
+  
+  .calendar-header button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #f35daa;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .calendar-header button:hover {
+    color: #eb639c;
+  }
+  
+  .calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+  }
+  
+  .day {
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    background-color: #f9cede;
+    color: #555;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .day.empty {
+    background-color: transparent;
+  }
+  
+  .day.good {
+    background-color: #4CAF50; /* Green for Good mood */
+  }
+  .day.not-bad {
+    background-color: #FFC107; /* Yellow for Not Bad mood */
+  }
+  .day.bad {
+    background-color: #F44336; /* Red for Bad mood */
+  }
+  
+  .day:hover {
+    transform: scale(1.05);
+  }

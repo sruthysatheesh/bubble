@@ -1,97 +1,123 @@
-/* Apply Pixelify Sans globally */
-/* Apply Pixelify Sans globally */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Pixelify+Sans:wght@600..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Pixelify+Sans:wght@600..700&display=swap");
 
-.pixel-text {
-    font-family: "Pixelify Sans", sans-serif;
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #f9f4f8, #f6e8ed); /* Soft pink gradient */
+  color: #333;
+  font-family: "Pixelify Sans", sans-serif;
 }
 
-
-
-/* Update home-container to use Pixelify Sans */
+/* Home Container */
 .home-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    text-align: center;
-    font-family: "Pixelify Sans", sans-serif; /* Apply the font here */
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 20px;
 }
 
-/* Header styling */
+/* Header Styling */
 .header {
-    margin-bottom: 20px;
-    font-family: "Pixelify Sans", sans-serif; /* Ensure header uses the font */
+  margin-bottom: 40px;
 }
 
 .header h1 {
-    font-family: "Pixelify Sans", sans-serif;
-
-    font-size: 2.5rem;
-    color: #f35daa;
+  font-size: 3.5rem;
+  color: #f35daa; /* Bright pink for the title */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin: 0;
+  font-family: pixelify sans;
 }
 
-.header p {
-
-    font-family: "Pixelify Sans", sans-serif;
-    font-size: 1.2rem;
-    color: #555;
+.header .subtitle {
+  font-size: 1.5rem;
+  color: #555;
+  margin: 10px 0;
 }
 
-/* Content styling */
+.header .decorative-text {
+  font-size: 1.2rem;
+  color: #f35daa; /* Matching pink */
+  margin: 0;
+}
+
+/* Content Wrapper */
 .content-wrapper {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
 }
 
-/* Info Box styling */
+/* Info Box Styling */
 .info-box {
-    background: rgb(255, 160, 201);
-    padding: 20px;
-    width: 320px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    font-family: "Pixelify Sans", sans-serif; /* Ensure info-box uses the font */
+  background: rgba(255, 255, 255, 0.9);
+  padding: 25px;
+  width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .info-box h2 {
-    color: #f9cede;
-    
-    font-family: "Pixelify Sans", sans-serif;
+  color: #f35daa; /* Bright pink for headings */
+  font-size: 1.8rem;
+  font-family: pixelify sans;
+  margin-bottom: 15px;
+}
+
+.info-box p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
 }
 
 .info-box ul {
-    list-style: none;
-    padding: 0;
-    
-    font-family: "Pixelify Sans", sans-serif;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .info-box li {
-    font-size: 1rem;
-    margin: 5px 0;
-    
-    font-family: "Pixelify Sans", sans-serif;
+  font-size: 1rem;
+  margin: 10px 0;
+  font-family: pixelify sans;
+  color: #555;
 }
 
-/* Button Styling */
+/* Call-to-Action Button */
 .cta-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    background-color: #f6e8ed;
-    color: rgb(255, 213, 228);
-    cursor: pointer;
-    transition: 0.3s;
-    font-family: "Pixelify Sans", sans-serif; /* Ensure button uses the font */
+  margin-top: 20px;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #f35daa; /* Bright pink for the button */
+  color: white;
+  font-family: pixelify sans;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(243, 93, 170, 0.3);
 }
 
 .cta-button:hover {
-    background-color: #eb639c;
+  background-color: #eb639c; /* Slightly darker pink on hover */
+  transform: translateY(-3px);
+}
+
+.cta-button:active {
+  transform: translateY(0);
 }
